@@ -1,54 +1,47 @@
 # Amazon Product Review Sentiment Analysis
 
-An end-to-end **Natural Language Processing (NLP) and Deep Learning project** for classifying Amazon product reviews based on sentiment. The project compares traditional machine learning, Word2Vec + LSTM, and BERT-based approaches and provides an interactive web application for making predictions.
+An end-to-end **NLP sentiment analysis project** that classifies Amazon product reviews as positive or negative using multiple NLP and deep learning approaches.
 
-The application has also been **deployed on AWS** and is accessible through a web interface.
+The project compares **TF-IDF, Word2Vec + LSTM, and Fine-tuned BERT** models. Based on the evaluation results, the **fine-tuned BERT model achieved the best performance and was selected for the final deployment on AWS**.
 
-## 🚀 Project Overview
+## 🚀 Project Highlights
 
-Customer reviews contain valuable information about user opinions and experiences. This project analyzes Amazon product reviews and predicts their sentiment using multiple NLP techniques.
+* Sentiment classification of Amazon product reviews
+* Comparison of traditional ML, LSTM, and Transformer-based approaches
+* Fine-tuned **BERT (`bert-base-uncased`)** for sentiment classification
+* Interactive **Streamlit** web application
+* Final BERT model deployed on **AWS**
+* Real-time sentiment prediction from user reviews
 
-The project implements and compares:
+## 🧠 Model Comparison
 
-* **TF-IDF + Machine Learning**
-* **Word2Vec + LSTM**
-* **BERT-based Sentiment Classification**
+| Model               | Approach               | Test Accuracy |
+| ------------------- | ---------------------- | ------------: |
+| TF-IDF              | TF-IDF + ML            |        ~85.4% |
+| Word2Vec + LSTM     | Word Embeddings + LSTM |        ~85.6% |
+| **Fine-tuned BERT** | Transformer            |      **~90%** |
 
-A Streamlit application provides an interactive interface where users can enter a product review and receive a sentiment prediction.
+Since BERT achieved the highest test accuracy, it was selected for the final production deployment.
 
-## ✨ Features
+## 🔄 Workflow
 
-* Amazon product review sentiment classification
-* Text preprocessing using NLP techniques
-* TF-IDF based sentiment model
-* Word2Vec embeddings with LSTM
-* BERT-based sentiment classification
-* Interactive Streamlit web application
-* REST/API-based prediction workflow
-* AWS deployment
-* Real-time sentiment prediction from user input
+```text
+Amazon Review
+     ↓
+Text Preprocessing
+     ↓
+BERT Tokenization
+     ↓
+Fine-tuned BERT Model
+     ↓
+Sentiment Prediction
+     ↓
+Streamlit Application
+     ↓
+AWS Deployment
+```
 
-## 🧠 Models Used
-
-### 1. TF-IDF + Machine Learning
-
-TF-IDF (Term Frequency–Inverse Document Frequency) is used to convert text into numerical features.
-
-The resulting features are then used to train a machine-learning classifier.
-
-**Test Accuracy:** ~85.4%
-
-### 2. Word2Vec + LSTM
-
-Word2Vec is used to generate dense word embeddings, which are then passed to an LSTM network to capture sequential information from the review text.
-
-**Test Accuracy:** ~85.6%
-
-### 3. BERT
-
-A pre-trained `bert-base-uncased` model is fine-tuned for sentiment classification.
-
-Key training configuration:
+## ⚙️ BERT Configuration
 
 * Model: `bert-base-uncased`
 * Maximum sequence length: 128
@@ -56,226 +49,69 @@ Key training configuration:
 * Learning rate: `2e-5`
 * Epochs: 10
 
-**Test Accuracy:** ~90%
+## 🛠️ Technologies
 
-The BERT-based approach achieved the highest test accuracy among the approaches evaluated in this project.
-
-## 🔄 NLP Pipeline
-
-The overall workflow is:
-
-```text
-Amazon Product Reviews
-        ↓
-Data Cleaning
-        ↓
-Text Preprocessing
-        ↓
-Tokenization
-        ↓
-Feature / Embedding Generation
-        ↓
-┌─────────────────────────────┐
-│                             │
-│  TF-IDF       Word2Vec      │
-│    ↓             ↓          │
-│  ML Model       LSTM        │
-│                             │
-│          BERT               │
-│           ↓                 │
-│    Transformer Model        │
-│                             │
-└─────────────────────────────┘
-        ↓
-Sentiment Prediction
-        ↓
-Streamlit Web Application
-        ↓
-AWS Deployment
-```
-
-## 🛠️ Technologies Used
-
-### Programming
-
-* Python
-* SQL
-
-### NLP & Machine Learning
-
-* NLTK
-* spaCy
-* Scikit-learn
-* Gensim
-* TensorFlow
-* PyTorch
-* Transformers
-* BERT
-* Word2Vec
-* LSTM
-
-### Application
-
-* Streamlit
-* REST API
-
-### Deployment & Cloud
-
-* AWS
-* Git
-* GitHub
-
-## 📊 Model Comparison
-
-| Model           | Technique                        | Test Accuracy |
-| --------------- | -------------------------------- | ------------: |
-| TF-IDF          | TF-IDF + Machine Learning        |        ~85.4% |
-| Word2Vec + LSTM | Word Embeddings + LSTM           |        ~85.6% |
-| BERT            | Transformer-based Classification |          ~90% |
-
-> Accuracy values are based on the evaluation performed during the project and may vary depending on preprocessing, dataset split, and training configuration.
+**Python • NLTK • spaCy • Scikit-learn • Gensim • TensorFlow • PyTorch • Transformers • BERT • LSTM • Streamlit • AWS • Git/GitHub**
 
 ## 🌐 AWS Deployment
 
-The Streamlit application has been deployed on **Amazon Web Services (AWS)** and can be accessed through a web browser.
+The final application uses the **fine-tuned BERT model** for sentiment prediction and is deployed on AWS.
 
-The deployed application allows users to:
-
-1. Enter an Amazon product review.
-2. Submit the review.
-3. Process the review using the trained model.
-4. Receive the predicted sentiment.
-
-### Live Application
-
-**AWS Deployment:**
-`[http://13.51.205.172:8501/]`
+**Live Application:**
+http://13.51.205.172:8501/
 
 ## 💻 Run Locally
 
-### 1. Clone the repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/arun2544/amazon-sentiment-analysis.git
-```
-
-```bash
 cd amazon-sentiment-analysis
 ```
 
-### 2. Create a virtual environment
+Install dependencies:
 
-Windows:
-
-```powershell
-python -m venv venv
-```
-
-Activate it:
-
-```powershell
-venv\Scripts\activate
-```
-
-### 3. Install dependencies
-
-```powershell
+```bash
 pip install -r requirements.txt
 ```
 
-### 4. Run the Streamlit application
+Run the application:
 
-```powershell
+```bash
 streamlit run app.py
 ```
 
-The application should then be available locally at:
+The application will be available at:
 
 ```text
 http://localhost:8501
 ```
 
-## 📁 Project Structure
+## 📊 Example
 
-```text
-amazon-single/
-│
-├── app.py
-├── requirements.txt
-├── README.md
-│
-├── model files
-├── preprocessing files
-├── dataset files
-└── other project files
-```
-
-> The exact structure may vary depending on the files included in the repository.
-
-## 📌 Example
-
-### Input
+**Input:**
 
 ```text
 The product quality is excellent and I am very happy with my purchase.
 ```
 
-### Prediction
+**Prediction:**
 
 ```text
 Positive
 ```
 
-Another example:
+## 🎯 Key Learning
 
-### Input
+This project demonstrates an end-to-end ML workflow:
 
-```text
-The product stopped working after a few days. Very disappointed.
-```
-
-### Prediction
-
-```text
-Negative
-```
-
-## 🎯 Project Objectives
-
-The main objectives of this project are:
-
-* Understand practical NLP preprocessing.
-* Compare traditional machine-learning approaches with deep-learning models.
-* Implement word embeddings using Word2Vec.
-* Understand sequence modelling using LSTM.
-* Fine-tune a transformer-based BERT model.
-* Build an interactive sentiment-analysis application.
-* Deploy an ML application on AWS.
-* Understand the complete workflow from model development to deployment.
-
-## 🔮 Future Improvements
-
-Possible improvements include:
-
-* Improving the BERT model through further hyperparameter tuning.
-* Using larger and more diverse review datasets.
-* Adding sentiment confidence scores.
-* Supporting multi-class sentiment such as positive, neutral, and negative.
-* Adding batch prediction for multiple reviews.
-* Adding model monitoring and logging.
-* Containerizing the application using Docker.
-* Adding CI/CD for automated deployment.
+**Data Processing → NLP → Model Comparison → Fine-tuning → Model Selection → Streamlit Application → AWS Deployment**
 
 ## 👨‍💻 Author
 
 **Arun Kumar**
-
-B.Tech, Aerospace Engineering
-IIT Kanpur
+B.Tech, Aerospace Engineering — IIT Kanpur
 
 GitHub: https://github.com/arun2544
 
-## 📄 License
-
-This project is intended for educational and portfolio purposes.
 
