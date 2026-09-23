@@ -149,7 +149,7 @@ The deployed application allows users to:
 ### Live Application
 
 **AWS Deployment:**
-`[Add your AWS application URL here]`
+`[http://13.51.205.172:8501/]`
 
 ## 💻 Run Locally
 
