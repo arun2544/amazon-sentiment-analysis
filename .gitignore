@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Large ML model
+bert_sentiment_model/model.safetensors
+
+# Other large model files
+*.pth
+*.pt
+*.bin
+
+# Environment/secrets
+.env
+
+# Jupyter
+.ipynb_checkpoints/
